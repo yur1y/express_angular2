@@ -1,0 +1,12 @@
+<md-sidenav-container fullscreen>
+
+	<md-toolbar color="primary" >
+		<span><a md-button href='/'>{{title}}</a></span>
+		<button md-button routerLink='/dashboard' routerLinkActive="active" >Dashboard</button>
+		<button md-button routerLink='/posts' routerLinkActive="active" >Posts</button>
+	</md-toolbar>
+
+
+	<router-outlet></router-outlet>
+
+</md-sidenav-container>

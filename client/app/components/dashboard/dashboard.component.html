@@ -1,0 +1,20 @@
+
+<h3>All posts</h3>
+
+<md-card *ngFor="let post of posts"  >
+    <md-card-header>
+        <!--<div md-card-avatar  ></div>-->
+        <md-card-title>{{post.name}}</md-card-title>
+        <md-card-subtitle>{{post.tags}}</md-card-subtitle>
+    </md-card-header>
+    <!--<img md-card-image src="assets/img/examples/shiba2.jpg">-->
+    <md-card-content>
+        <p>
+{{post.text}}
+        </p>
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button (click)="gotoDetail(post)">Details</button>
+        <!--<button md-button>SHARE</button>-->
+    </md-card-actions>
+</md-card>
