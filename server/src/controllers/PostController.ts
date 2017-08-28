@@ -86,4 +86,33 @@ export class PostController implements IBaseController <PostBusiness> {
 
         }
     }
+    findByTag(req: express.Request, res: express.Response): void {
+        try {
+
+            const tag: string = req.params.tag;
+            const postBusiness = new PostBusiness();
+            postBusiness.findByTag(tag, (error, result) => {
+                if(error) res.send({"error": "error"});
+                else res.send(result);
+            });
+        }
+        catch (e)  {
+            console.log(e);
+            res.send({"error": "error in your request"});
+
+        }
+    }
+    distinctTags(req:express.Request,res:express.Response):void {
+        try {
+
+            const postBusiness =new PostBusiness();
+            postBusiness.distinctTags((error, result)=>{
+                if(error)res.send({"error":"error"});
+                else res.send(result);
+            });
+        }catch(e){
+            console.log(e);
+            res.send({"error":"error in your request"});
+        }
+    }
 }

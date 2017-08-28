@@ -1,30 +1,36 @@
 
+<md-card> <md-toolbar>
+    <h3 >Tags Cloud</h3>
+ <load-temp [data]="data"></load-temp>
+</md-toolbar>
+</md-card>
 <md-card>
     <h1>{{title}}</h1>
 
-    <div >
-        <div   *ngIf="error">{{error}}</div>
-        <div  >
-            <button md-raised-button   (click)="addPost()">Add New Post</button>
+    <div>
+        <div *ngIf="error">{{error}}</div>
+        <div>
+            <button md-raised-button (click)="addPost()">Add New Post</button>
         </div>
     </div>
 </md-card>
 
 
-
 <md-list>
-    <h2 md-subheader >Posts</h2>
-    <md-list-item  *ngFor="let post of posts" [class.active]="post === selectedPost" (click)="onSelect(post)">
+    <h2 md-subheader>Posts</h2>
+    <md-list-item *ngFor="let post of posts" [class.active]="post === selectedPost" (click)="onSelect(post)">
 
         <h4 md-line>{{post.name}}</h4>
         <p md-line> {{post.tags }} </p>
-        <div><button md-raised-button (click)="deletePost(post, $event)"><i class="material-icons">delete</i> </button></div>
+        <div>
+            <button md-raised-button (click)="deletePost(post, $event)"><i class="material-icons">delete</i></button>
+        </div>
     </md-list-item>
 </md-list>
-<md-card  *ngIf="selectedPost">
-    <h2>
+<md-card *ngIf="selectedPost">
+    <h3>
         {{selectedPost.name | uppercase}} selected
-    </h2>
+    </h3>
     <button md-raised-button (click)="gotoDetail()">View Details</button>
 
 </md-card>

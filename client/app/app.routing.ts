@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
 import { PostsComponent }      from './components/posts/posts.component';
 import { PostDetailComponent }  from './components/postDetail/post-detail.component';
+import {PostsByTagsComponent} from './components/postsByTags/posts-by-tags.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +22,10 @@ const appRoutes: Routes = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'posts/tags/:tag',
+    component: PostsByTagsComponent
   }
 ];
 

@@ -18,8 +18,12 @@
          <textarea cols="25" rows="10"  mdInput  [(ngModel)]="post.text" placeholder="text"  width="300" height="150" ></textarea>
      </md-input-container>
 
+    <md-chip-list>
+        <md-chip (click)="removeTag(tag)" *ngFor="let tag of post.tags">{{tag}}</md-chip>
+    </md-chip-list>
+
     <md-input-container>
-            <input mdInput   [(ngModel)]="post.tags"  placeholder="tags"  />
+            <input mdInput placeholder="tags" #tagElem (keyup.enter)="addTag(tagElem.value,$event,tagElem)"  >
     </md-input-container>
 
 

@@ -17,6 +17,8 @@ export  class PostRoutes {
         router.put("/posts/:_id", controller.update);
         router.get("/posts/:_id", controller.findById);
         router.delete("/posts/:_id", controller.delete);
+        router.get("/posts/tags/:tag",controller.findByTag);
+        router.get("/tags",controller.distinctTags);
 
         return router;
     }

@@ -25,6 +25,18 @@ export class PostService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+    postsByTag(tag: string): Promise<Post[]> {
+        return this.http.get(this.postsUrl + '/tags/' + tag)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError)
+    }
+    distinctTags() {
+        return this.http.get('tags')
+            .toPromise()
+            .then(response => response.json() )
+            .catch(this.handleError)
+    }
 
     save(post: Post): Promise<Post>  {
         if (post._id) {

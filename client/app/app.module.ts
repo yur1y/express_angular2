@@ -13,6 +13,11 @@ import { PostDetailComponent }  from './components/postDetail/post-detail.compon
 
 import { PostService }  from './services/post.service';
 import {AngularMaterialModule} from './ngMaterial.module';
+import {LoadService} from './services/load.service';
+import {ComponentLoader} from './components/core/load.component';
+import {LoadDirective} from './directives/load.directive';
+import {PostsTagsComponent} from './components/postsTags/posts-tags.component';
+import {PostsByTagsComponent} from './components/postsByTags/posts-by-tags.component';
 
 @NgModule({
   imports: [
@@ -26,11 +31,22 @@ import {AngularMaterialModule} from './ngMaterial.module';
     AppComponent,
     PostsComponent,
     DashboardComponent,
-    PostDetailComponent
+    PostDetailComponent,
+
+      ComponentLoader,
+
+      LoadDirective,
+    PostsTagsComponent,
+      PostsByTagsComponent
+  ],
+  entryComponents:[
+      PostsTagsComponent
   ],
   providers: [
-    PostService
+    PostService,
+    LoadService
+
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

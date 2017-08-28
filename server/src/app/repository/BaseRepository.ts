@@ -34,6 +34,12 @@ export class BaseRepository<T extends mongoose.Document> implements IRead<T>, IW
     findById (_id: string, callback: (error: any, result: T) => void) {
         this.model.findById( _id, callback);
     }
+    findByTag (tag: string, callback: (error: any, result: T) => void) {
+        this.model.find({tags:tag}, callback);
+    }
+    distinctTags( callback:(error:any, result:string[])=>void){
+        this.model.distinct('tags', callback)
+    }
 
 
     private toObjectId (_id: string) : mongoose.Types.ObjectId {

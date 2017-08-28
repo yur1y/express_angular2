@@ -1,7 +1,6 @@
-
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../models/post';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {PostService} from '../../services/post.service';
 
 @Component({
@@ -27,6 +26,7 @@ export class PostDetailComponent implements OnInit {
             if (id === 'new') {
                 this.newPost = true;
                 this.post = new Post();
+                this.post.tags = [];
             } else {
                 this.newPost = false;
                 this.postService.getPost(id)
@@ -47,5 +47,21 @@ export class PostDetailComponent implements OnInit {
 
     goBack() {
         window.history.back();
+    }
+
+    addTag(tag: string, event: any, elem: HTMLInputElement) {
+        event.stopPropagation()
+
+        if ( tag && this.post.tags.indexOf(tag) === -1 ) {
+
+            this.post.tags.push(tag)
+            elem.value = ''
+        } else {
+            alert('tag already exists')
+        }
+    }
+
+    removeTag(tag: string) {
+        this.post.tags.splice(this.post.tags.indexOf(tag), 1)
     }
 }

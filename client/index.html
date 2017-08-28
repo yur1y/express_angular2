@@ -38,50 +38,44 @@
 
 
         <style type="text/css">
-            #pre-bootstrap {
-                background-color: #262626 ;
+            #bootstrap {
+                background-color: #F5F5F5 ;
                 bottom: 0px ;
                 left: 0px ;
                 position: fixed ;
                 right: 0px ;
                 top: 0px ;
-                z-index: 999999 ;
             }
-            #pre-bootstrap div {
-                color: #FFFFFF ;
-                font-family: monospace ;
+            .loader {
                 left: 0px ;
-                margin-top: -37px ;
                 position: absolute ;
                 right: 0px ;
-                text-align: center ;
                 top: 50% ;
+                border: 16px solid #f5f5f5;
+                border-radius: 50%;
+                border-top: 16px solid #b3b3b3;
+                width: 75px;
+                height: 75px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+               margin: auto;
             }
-            #pre-bootstrap h1 {
-                font-size: 26px ;
-                line-height: 35px ;
-                margin: 0px 0px 20px 0px ;
+
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
             }
-            #pre-bootstrap p {
-                font-size: 18px ;
-                line-height: 14px ;
-                margin: 0px 0px 0px 0px ;
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
         </style>
 
-        <div id="pre-bootstrap">
-            <div class="messaging">
-
-                <h1>
-                    App is Loading ...
-                </h1>
-
-                <p>
-                    Please stand by
-                </p>
-
+            <div id="bootstrap" >
+                    <div class="loader"></div>
             </div>
-        </div>
+
     </app>
 </body>
 </html>

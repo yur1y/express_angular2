@@ -37,5 +37,11 @@ export class PostBusiness implements IPostBusiness {
         this.postRepository.findById(_id, callback);
     }
 
+    findByTag (tag: string, callback: (error: any, result: any) => void) {
+        this.postRepository.findByTag(tag, callback);
+    }
+    distinctTags( callback:(error:any, result:string[])=>void){
+        this.postRepository.distinctTags( callback)
+    }
 }
 
